@@ -20,7 +20,7 @@ const Header = () => {
   const menuItems = [
     { label: 'Diensten', href: '#diensten' },
     { label: 'Resultaten', href: '#resultaten' },
-    { label: 'Reviews', href: '#reviews' },
+    //{ label: 'Reviews', href: '#reviews' },
     { label: 'Instagram', href: 'https://www.instagram.com/cleann_tex/', external: true }
   ];
 
