@@ -13,7 +13,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-16 md:pt-20">
+    <section id="Hero" className="relative min-h-screen flex items-center pt-16 md:pt-20">
       {/* Background Image with Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -36,7 +36,7 @@ const Hero = () => {
 
     {/* Description */}
     <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 sm:mb-10 max-w-2xl">
-      CleanTex staat voor zorgvuldige reiniging van zetels, tapijten en auto-interieurs met doeltreffende technieken en kwaliteitsproducten.
+      CleanTex staat voor professionele dieptereiniging van zetels, tapijten en auto-interieurs met doeltreffende technieken en kwaliteitsproducten.
     </p>
 
     {/* CTA Buttons */}

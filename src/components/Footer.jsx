@@ -28,6 +28,9 @@ const Footer = () => {
             <p className="text-gray-300 text-sm leading-relaxed">
               Professionele dieptereiniging voor een frisse levensstijl
             </p>
+            <div className="mt-4">
+              <p className="text-gray-300 text-sm">BE1034114723</p>
+            </div>
           </div>
 
           {/* Contact */}

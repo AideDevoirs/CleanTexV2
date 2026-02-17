@@ -1,7 +1,17 @@
-import React from 'react';
-import { results } from '../data/mockData';
+import React, { useState, useEffect } from 'react';
+import { Carousel, CarouselContent, CarouselItem } from './ui/carousel';
+import config from '../config/index.json';
 
 const Results = () => {
+  const gallery = config.gallery || [];
+  const [api, setApi] = useState(null);
+
+  // ensure carousel is centered on load
+  useEffect(() => {
+    if (!api) return;
+    try { api.reInit && api.reInit(); } catch (e) {}
+  }, [api]);
+
   return (
     <section id="resultaten" className="py-20 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,35 +21,50 @@ const Results = () => {
             RESULTATEN DIE SPREKEN
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Bekijk de transformatie van onze professionele reinigingsdiensten
+            Bekijk enkele voorbeelden van ons werk
           </p>
         </div>
 
-        {/* Results Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {results.map((result) => (
-            <div
-              key={result.id}
-              className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-            >
-              {/* Image */}
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={result.image}
-                  alt={result.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
+        {/* Carousel showing 3 images at once */}
+        <div className="relative px-2">
+          <Carousel
+            opts={{ align: 'start', loop: false }}
+            setApi={setApi}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2">
+              {gallery.map((item) => (
+                <CarouselItem key={item.id} className="basis-full sm:basis-1/2 lg:basis-1/3 pl-2">
+                  <div className="h-full">
+                    <div className="bg-white rounded-lg border border-gray-200 h-full overflow-hidden">
+                      <div
+                        className="w-full bg-gray-50 flex items-center justify-center"
+                        style={{ aspectRatio: '1179/1500', maxHeight: '80vh' }}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-contain block"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                <div className="p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-xl font-bold mb-1">{result.title}</h3>
-                  <p className="text-sm text-gray-300">{result.description}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+          {/* Chevron navigation */}
+          <button
+            onClick={() => api?.scrollPrev()}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 text-3xl text-gray-600 hover:text-gray-800 px-3"
+            aria-label="Previous results"
+          >&lt;</button>
+          <button
+            onClick={() => api?.scrollNext()}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 text-3xl text-gray-600 hover:text-gray-800 px-3"
+            aria-label="Next results"
+          >&gt;</button>
         </div>
       </div>
     </section>

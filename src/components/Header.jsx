@@ -7,7 +7,7 @@ const { company } = config;
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { name: companyName, logo } = company;
+  const { name: companyName, logoHome } = company;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,10 +44,23 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <div className="flex items-center gap-2">
-              <img alt="logo" className="h-16 w-auto sm:h-16" src={logo} />
-              <div>
-                <div className="text-xs md:text-sm font-bold text-gray-800 tracking-wider">CLEAN TEX</div>
-              </div>
+              <button
+                aria-label={`Aller en haut - ${companyName}`}
+                onClick={() => {
+                  const element = document.querySelector('#Hero');
+                  if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="p-0 m-0 bg-transparent border-0"
+              >
+                <img
+                  alt="logo"
+                  className="h-24 w-auto sm:h-24 select-none cursor-pointer hover:opacity-90"
+                  src={logoHome}
+                  draggable={false}
+                  onDragStart={(e) => e.preventDefault()}
+                  onContextMenu={(e) => e.preventDefault()}
+                />
+              </button>
             </div>
           </div>
 

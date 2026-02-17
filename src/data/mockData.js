@@ -78,7 +78,7 @@ export const reviews = [
   },
   {
     id: 2,
-    name: "Dirk Vandenberghe",
+    name: "Sarah V.",
     title: "Hotelmanager",
     rating: 5,
     comment: "Snelle service en proper werk. Aanrader!",
@@ -86,7 +86,7 @@ export const reviews = [
   },
   {
     id: 3,
-    name: "Amira Hassan",
+    name: "Sofia K.",
     title: "Auto-eigenaar",
     rating: 5,
     comment: "Alle vlekken in mijn auto zijn weg. Heel tevreden.",
@@ -94,7 +94,7 @@ export const reviews = [
   },
   {
     id: 4,
-    name: "Luc Dubois",
+    name: "Kevin P.",
     title: "Schoolmanager",
     rating: 5,
     comment: "Heel professioneel gewerkt. Alles netjes achtergelaten en mooie resultaten.",
