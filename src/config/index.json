@@ -3,4 +3,17 @@
     "name": "",
     "logo": "/assets/images/ClLogo.png"
   }
+  ,
+  "gallery": [
+    { "id": 1, "image": "/assets/images/result1.jpg", "title": "Resultaat 1" },
+    { "id": 2, "image": "/assets/images/result2.jpg", "title": "Resultaat 2" },
+    { "id": 3, "image": "/assets/images/result3.jpg", "title": "Resultaat 3" },
+    { "id": 4, "image": "/assets/images/result4.jpg", "title": "Resultaat 4" },
+    { "id": 5, "image": "/assets/images/result5.jpg", "title": "Resultaat 5" },
+    { "id": 6, "image": "/assets/images/result6.jpg", "title": "Resultaat 6" },
+    { "id": 7, "image": "/assets/images/result7.jpg", "title": "Resultaat 7" },
+    { "id": 8, "image": "/assets/images/result8.jpg", "title": "Resultaat 8" },
+    { "id": 9, "image": "/assets/images/result9.jpg", "title": "Resultaat 9" },
+    { "id": 10, "image": "/assets/images/result10.jpg", "title": "Resultaat 10" }
+  ]
 }

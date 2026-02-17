@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { Input } from './ui/input';
 import { useToast } from '../hooks/use-toast';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: '',
   });
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init('OT2zf8nW_mXJjq6V9');
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -20,14 +27,40 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock submission
-    toast({
-      title: "Aanvraag Verzonden!",
-      description: "We nemen zo snel mogelijk contact met u op.",
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setIsLoading(true);
+
+    try {
+      const response = await emailjs.send(
+        'service_xrdardf',
+        'template_wwt8z7z',
+        {
+          to_email: 'cleantex.2100@gmail.com',
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message || 'Pas de détails supplémentaires',
+        }
+      );
+
+      if (response.status === 200) {
+        toast({
+          title: "Aanvraag Verzonden!",
+          description: "We nemen zo snel mogelijk contact met u op.",
+        });
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      }
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur s'est produite. Veuillez réessayer.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -147,9 +180,10 @@ const Contact = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-6 text-lg font-medium rounded-md transition-colors duration-200"
+                disabled={isLoading}
+                className="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-6 text-lg font-medium rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Verstuur Aanvraag
+                {isLoading ? 'Envoi en cours...' : 'Verstuur Aanvraag'}
               </Button>
             </form>
           </div>

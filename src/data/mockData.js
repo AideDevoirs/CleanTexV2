@@ -67,6 +67,57 @@ export const results = [
   }
 ];
 
+export const reviews = [
+  {
+    id: 1,
+    name: "Joannes",
+    title: "Huiseigenaar",
+    rating: 5,
+    comment: "Dankjewel, echt blij met het resultaat. De zetel ziet er terug heel goed uit, groot verschil met ervoor. Zeker een aanrader.",
+    initials: "J"
+  },
+  {
+    id: 2,
+    name: "Dirk Vandenberghe",
+    title: "Hotelmanager",
+    rating: 5,
+    comment: "Snelle service en proper werk. Aanrader!",
+    initials: "DV"
+  },
+  {
+    id: 3,
+    name: "Amira Hassan",
+    title: "Auto-eigenaar",
+    rating: 5,
+    comment: "Alle vlekken in mijn auto zijn weg. Heel tevreden.",
+    initials: "AH"
+  },
+  {
+    id: 4,
+    name: "Luc Dubois",
+    title: "Schoolmanager",
+    rating: 5,
+    comment: "Heel professioneel gewerkt. Alles netjes achtergelaten en mooie resultaten.",
+    initials: "LD"
+  },
+  {
+    id: 5,
+    name: "Carole Mercier",
+    title: "Bedrijfsleider",
+    rating: 5,
+    comment: "Ik twijfelde eerst, maar het resultaat is echt top. Mijn zetels zijn veel properder dan verwacht.",
+    initials: "CM"
+  },
+  {
+    id: 6,
+    name: "Karim Saleh",
+    title: "Vastgoedondernemer",
+    rating: 5,
+    comment: "Zetels waren echt vuil, nu zien ze er weer als nieuw uit. Super tevreden!",
+    initials: "KS"
+  }
+];
+
 export const contactInfo = {
   phone: "0466 18 76 27",
   email: "cleantex.2100@gmail.com",
