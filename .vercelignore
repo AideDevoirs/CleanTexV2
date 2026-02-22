@@ -1,0 +1,9 @@
+.git
+.gitignore
+.next
+node_modules
+npm-debug.log
+.env.example
+README.md
+SEO_GUIDE.md
+MIGRATION_SUMMARY.md
