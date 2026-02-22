@@ -1,74 +1,262 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# CleanTex - Site Web SEO Optimisé avec Next.js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Site professionnel de dieptereiniging (nettoyage en profondeur) **migré de Create React App vers Next.js 16** pour une meilleure visibilité sur Google et des performances accrues.
 
-## Available Scripts
+## 🎯 Objectifs
 
-In the project directory, you can run:
+✅ **SEO Maximal** - SSR, Sitemap, Structured Data (JSON-LD)  
+✅ **Performance** - Image optimization, Code splitting, Caching  
+✅ **Mobile-First** - Design responsive et PWA ready  
+✅ **Sécurité** - Security headers, CORS, Input validation  
+✅ **Accessibilité** - WCAG 2.1 AA compliance  
 
-### `npm start`
+## 🚀 Démarrage Rapide
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Installation
+```bash
+cd frontend
+npm install --legacy-peer-deps
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Mode développement
+```bash
+npm run dev
+```
+Ouvrir [http://localhost:3000](http://localhost:3000) dans le navigateur.
 
-### `npm test`
+### 3. Build production
+```bash
+npm run build
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📊 Améliorations SEO Implémentées ✨
 
-### `npm run build`
+### ✅ Server-Side Rendering (SSR)
+- Contenu rendu côté serveur → Google indexe le HTML complet
+- Meilleur Core Web Vitals score
+- Temps de chargement initial rapide
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ✅ Métadonnées & Open Graph
+- Title dynamique et descriptif
+- Meta description optimisée
+- Open Graph pour Facebook, LinkedIn
+- Twitter Card pour partages sociaux
+- Canonical URL pour éviter duplication
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### ✅ Structured Data (Schema.org)
+- LocalBusiness schema pour l'activité
+- Organization schema
+- Service schema
+- AggregateRating pour avis clients
+- Microdata JSON-LD complètes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### ✅ Sitemap & Robots.txt
+- `sitemap.xml` généré automatiquement
+- `robots.txt` pour crawler guidance
+- Prêt pour Google Search Console
 
-### `npm run eject`
+### ✅ Performance Optimization
+- Image optimization avec Next.js Image component
+- CSS minification automatique
+- JavaScript code-splitting
+- Compression gzip
+- Fonts preconnection
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### ✅ Mobile & PWA
+- 100% responsive design
+- Mobile-friendly meta tags
+- Web App manifest
+- Apple Web App support
+- Installation sur home screen
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### ✅ Sécurité
+- Security headers (X-Content-Type-Options, X-Frame-Options, etc.)
+- Referrer Policy strict
+- Permissions Policy
+- Input validation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📁 Structure du Projet
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+frontend/
+├── app/
+│   ├── layout.jsx              # Layout + métadonnées SEO
+│   ├── page.jsx               # Page d'accueil
+│   ├── globals.css            # Styles Tailwind
+│   ├── robots.js              # robots.txt dynamique
+│   ├── sitemap.js             # sitemap.xml dynamique
+│   ├── middleware.js          # Security headers
+│   ├── components/
+│   │   ├── Header.jsx         # Navigation
+│   │   ├── Hero.jsx           # Section hero
+│   │   ├── Services.jsx       # Nos services
+│   │   ├── Results.jsx        # Galerie résultats
+│   │   ├── Reviews.jsx        # Avis clients
+│   │   ├── Contact.jsx        # Formulaire contact
+│   │   ├── Footer.jsx         # Pied de page
+│   │   └── ui/               # Composants UI réutilisables
+│   ├── api/
+│   │   └── contact/route.js   # API endpoint POST
+│   ├── hooks/
+│   │   └── use-toast.js       # Toast notifications
+│   ├── lib/
+│   │   └── utils.js           # Utilitaires
+│   └── data/
+│       └── mockData.js        # Données statiques
+├── public/
+│   ├── manifest.json          # PWA Manifest
+│   ├── favicon.ico
+│   └── assets/                # Images et ressources
+├── next.config.js             # Config Next.js optimisée
+├── tailwind.config.js         # Tailwind CSS
+├── tsconfig.json              # TypeScript config
+├── middleware.js              # Middleware Next.js
+├── package.json
+├── .env.example              # Template variables
+├── .env.local                # Variables locales
+├── SEO_GUIDE.md              # Guide SEO détaillé
+└── README.md                 # Ce fichier
+```
 
-## Learn More
+## 🔧 Configuration
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Variables d'environnement (.env.local)
+```env
+NEXT_PUBLIC_SITE_URL=https://cleantex.com
+NEXT_PUBLIC_API_URL=https://api.cleantex.com
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Tailwind CSS
+Configuré avec:
+- Composants personnalisés
+- Dark mode support
+- Animations fluides
+- Plugin accessibility
 
-### Code Splitting
+## 🌐 Déploiement
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Sur Vercel (Recommandé pour Next.js)
+```bash
+npm install -g vercel
+vercel
+```
 
-### Analyzing the Bundle Size
+### Sur autres serveurs
+```bash
+npm run build
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Variables en production
+Ajouter dans votre hosting:
+- `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_API_URL`
 
-### Making a Progressive Web App
+## 📈 Vérification SEO
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Google Search Console
+1. Aller sur https://search.google.com/search-console
+2. Ajouter propriété
+3. Soumettre sitemap: `https://cleantex.com/sitemap.xml`
+4. Vérifier les données structurées
 
-### Advanced Configuration
+### PageSpeed Insights
+```
+https://pagespeed.web.dev
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Schema.org Validator
+```
+https://validator.schema.org
+```
 
-### Deployment
+## 🔌 Intégration Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### API Contact Route
+```javascript
+// POST /api/contact
+{
+  name: "string",
+  email: "string", 
+  phone: "string",
+  message: "string"
+}
+```
 
-### `npm run build` fails to minify
+Communique avec FastAPI backend avec fallback EmailJS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# CleanTexV2
->>>>>>> cefeb870eecef3991e5ca7c7b9b9d2b7fd317398
+## 📦 Dépendances Principales
+
+- **next**: ^16.1.6 - Framework React optimisé SEO
+- **react**: ^19.0.0 - UI library
+- **tailwindcss**: ^3.4.17 - Styling
+- **@radix-ui**: Composants accessibles
+- **lucide-react**: Icônes SVG
+- **emailjs/browser**: Email fallback
+- **clsx**: Utility classes
+
+## 🔒 Sécurité
+
+Middleware activé:
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: DENY`
+- `X-XSS-Protection: 1; mode=block`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy: geolocation=()`
+
+## 🎨 Styling
+
+- Tailwind CSS pour responsive design
+- CSS Variables pour thématisation
+- Mobile-first approach
+- Dark mode compatible
+
+## 📱 PWA (Progressive Web App)
+
+- manifest.json configuré
+- Service worker ready
+- Offline support possible
+- Install to home screen
+- App shortcuts
+
+## 🆘 Troubleshooting
+
+### Port 3000 déjà utilisé
+```bash
+npm run dev -- -p 3001
+```
+
+### Erreur de build
+```bash
+rm -rf .next node_modules
+npm install --legacy-peer-deps
+npm run build
+```
+
+### Métadonnées non indexées
+1. Vérifier `app/layout.jsx`
+2. Valider JSON-LD sur schema.org
+3. Soumettre sitemap à Google
+
+## 📚 Documentation Complète
+
+Voir **[SEO_GUIDE.md](./SEO_GUIDE.md)** pour le guide complet d'optimisation SEO avec checklist et métriques de performance
+
+## 📖 Ressources
+
+- [Next.js Docs](https://nextjs.org/docs)
+- [Google SEO Starter Guide](https://developers.google.com/search)
+- [Schema.org](https://schema.org)
+- [Web.dev Learning](https://web.dev/learn)
+- [MDN Web Docs](https://developer.mozilla.org/)
+
+## 👥 Support
+
+Pour l'optimisation SEO complète: Voir [SEO_GUIDE.md](./SEO_GUIDE.md)
+
+---
+
+**Migré vers Next.js**: Février 2026  
+**Version**: 2.0  
+**Status**: ✅ Production Ready
