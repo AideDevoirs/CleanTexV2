@@ -62,7 +62,6 @@ export const metadata = {
       'fr-BE': `${baseUrl}/fr`,
     },
   },
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   applicationName: 'CleanTex',
   appleWebApp: {
     capable: true,
