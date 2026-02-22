@@ -1,7 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /api/
-Disallow: /.well-known/
-
-Host: https://cleantex.com
-Sitemap: https://cleantex.com/sitemap.xml
