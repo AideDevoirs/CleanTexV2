@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: '',
+  trailingSlash: false,
+  swcMinify: true,
   images: {
     remotePatterns: [
       {
@@ -25,6 +28,9 @@ const nextConfig = {
       'clsx',
       'tailwind-merge',
     ],
+  },
+  turbopack: {
+    root: '.',
   },
   headers: async () => {
     return [

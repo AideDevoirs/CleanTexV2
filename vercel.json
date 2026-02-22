@@ -1,4 +1,6 @@
 {
+  "root": ".",
   "buildCommand": "next build",
-  "outputDirectory": ".next"
+  "outputDirectory": ".next",
+  "installCommand": "npm ci --legacy-peer-deps"
 }
