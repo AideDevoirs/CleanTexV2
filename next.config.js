@@ -2,7 +2,6 @@
 const nextConfig = {
   basePath: '',
   trailingSlash: false,
-  swcMinify: true,
   images: {
     remotePatterns: [
       {
