@@ -53,13 +53,13 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'add-your-google-verification-here',
+    google: '637fa9ad58322151',
   },
   alternates: {
     canonical: baseUrl,
     languages: {
-      'nl-BE': `${baseUrl}/nl`,
-      'fr-BE': `${baseUrl}/fr`,
+      'nl-BE': `${baseUrl}`,
+      'fr-BE': `${baseUrl}`,
     },
   },
   applicationName: 'CleanTex',
