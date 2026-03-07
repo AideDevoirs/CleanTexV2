@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { Input } from './ui/input';
@@ -9,6 +10,7 @@ import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { toast } = useToast();
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -33,56 +35,28 @@ const Contact = () => {
     setIsLoading(true);
 
     try {
-      // Try backend API first
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const emailResponse = await emailjs.send(
+        'service_xrdardf',
+        'template_wwt8z7z',
+        {
+          to_email: 'cleantex.2100@gmail.com',
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message || 'Geen extra details',
+        }
+      );
 
-      if (response.ok) {
-        toast({
-          title: "Aanvraag Verzonden!",
-          description: "We nemen zo snel mogelijk contact met u op.",
-        });
-        setFormData({ name: '', email: '', phone: '', message: '' });
-      } else {
-        throw new Error('Backend API failed');
+      if (emailResponse.status === 200) {
+        router.push(`/bedankt?naam=${encodeURIComponent(formData.name)}`);
       }
     } catch (error) {
-      console.error('API error, falling back to EmailJS:', error);
-      
-      // Fallback to EmailJS
-      try {
-        const emailResponse = await emailjs.send(
-          'service_xrdardf',
-          'template_wwt8z7z',
-          {
-            to_email: 'cleantex.2100@gmail.com',
-            from_name: formData.name,
-            from_email: formData.email,
-            phone: formData.phone,
-            message: formData.message || 'Pas de détails supplémentaires',
-          }
-        );
-
-        if (emailResponse.status === 200) {
-          toast({
-            title: "Aanvraag Verzonden!",
-            description: "We nemen zo snel mogelijk contact met u op.",
-          });
-          setFormData({ name: '', email: '', phone: '', message: '' });
-        }
-      } catch (emailError) {
-        console.error('EmailJS error:', emailError);
-        toast({
-          title: "Erreur",
-          description: "Une erreur s'est produite. Veuillez réessayer.",
-          variant: "destructive"
-        });
-      }
+      console.error('EmailJS error:', error);
+      toast({
+        title: "Fout",
+        description: "Er is een fout opgetreden. Probeer het opnieuw.",
+        variant: "destructive"
+      });
     } finally {
       setIsLoading(false);
     }
